@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    command: "deno run -A main.ts"
+    stdin_open: true
+    tty: true
