@@ -4,4 +4,4 @@ import { StdioServerTransport } from "npm:@modelcontextprotocol/sdk/server/stdio
 const transport = new StdioServerTransport();
 await server.connect(transport);
 
-console.log('UUID Generator MCP Server running on stdio');
+console.log('MCP Server running on stdio');

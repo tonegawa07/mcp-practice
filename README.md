@@ -1,8 +1,4 @@
-# MCP UUID Generator
-
-## Overview
-
-This is a MCP server that generates UUIDs.
+# MCP Practice
 
 ## Usage
 
@@ -13,13 +9,14 @@ docker compose up
 ## Tools
 
 - `generate_uuid`: Generate a UUID.
+- `meaning_of_built`: The meaning of BuiLT (LT).
 
 ## MCP Client
 
 ```json
 {
   "mcpServers": {
-    "uuid-generator": {
+    "mcp-practice": {
       "command": "docker",
       "args": [
         "compose",

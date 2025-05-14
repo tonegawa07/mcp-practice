@@ -18,4 +18,15 @@ server.tool('generate_uuid', 'Generate a UUID.', {}, async () => {
   };
 });
 
+server.tool('meaning_of_built', 'The meaning of BuiLT (LT)', {}, async () => {
+  return {
+    content: [
+      {
+        type: 'text',
+        text: `The meaning of BuiLT (LT) is "Beyond Usual Ideas in Lightning Talk"`,
+      },
+    ],
+  };
+});
+
 export { server };
