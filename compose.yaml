@@ -1,6 +1,7 @@
 services:
   app:
-    build: .
+    build:
+      context: ./app
     volumes:
       - ./app:/app
     ports:
@@ -8,3 +9,11 @@ services:
     command: "deno run -A main.ts"
     stdin_open: true
     tty: true
+  ruby:
+    build:
+      context: ./ruby
+    volumes:
+      - ./ruby:/app
+    ports:
+      - 4567:4567
+    command: "bundle exec ruby app.rb -o 0.0.0.0"

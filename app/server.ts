@@ -29,4 +29,18 @@ server.tool('meaning_of_built', 'The meaning of BuiLT (LT)', {}, async () => {
   };
 });
 
+server.tool('obfuscatable', 'obfuscatable', {}, async () => {
+  const response = await fetch('http://ruby:4567');
+  const data = await response.json();
+
+  return {
+    content: [
+      {
+        type: 'text',
+        text: data.message,
+      },
+    ],
+  };
+});
+
 export { server };
