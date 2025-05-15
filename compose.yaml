@@ -2,7 +2,7 @@ services:
   app:
     build: .
     volumes:
-      - .:/app
+      - ./app:/app
     ports:
       - 8000:8000
     command: "deno run -A main.ts"
