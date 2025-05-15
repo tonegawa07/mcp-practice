@@ -10,6 +10,8 @@ docker compose up
 
 - `generate_uuid`: Generate a UUID.
 - `meaning_of_built`: The meaning of BuiLT (LT).
+- `to_param`: Make your ActiveRecord ids non-obvious (to_param).
+- `deobfuscatable`: Make your ActiveRecord ids obvious (deobfuscatable).
 
 ## MCP Client
 
