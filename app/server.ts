@@ -1,4 +1,5 @@
 import { McpServer } from "npm:@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "npm:zod";
 
 const server = new McpServer({
   name: 'uuid-generator',
@@ -29,18 +30,46 @@ server.tool('meaning_of_built', 'The meaning of BuiLT (LT)', {}, async () => {
   };
 });
 
-server.tool('obfuscatable', 'obfuscatable', {}, async () => {
-  const response = await fetch('http://ruby:4567');
-  const data = await response.json();
+server.tool(
+  'to_param',
+  'Make your ActiveRecord ids non-obvious (to_param)',
+  {
+    id: z.number(),
+  },
+  async ({ id }) => {
+    const response = await fetch(`http://ruby:4567/to_param/${id}`);
+    const data = await response.json();
 
-  return {
-    content: [
-      {
-        type: 'text',
-        text: data.message,
-      },
-    ],
-  };
-});
+    return {
+      content: [
+        {
+          type: 'text',
+          text: data.obfuscated_id,
+        },
+      ],
+    };
+  },
+);
+
+server.tool(
+  'deobfuscatable',
+  'Deobfuscate your ActiveRecord ids (deobfuscatable)',
+  {
+    id: z.number(),
+  },
+  async ({ id }) => {
+    const response = await fetch(`http://ruby:4567/deobfuscatable/${id}`);
+    const data = await response.json();
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: data.deobfuscatable_id,
+        },
+      ],
+    };
+  },
+);
 
 export { server };
